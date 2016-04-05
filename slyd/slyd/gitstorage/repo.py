@@ -50,6 +50,9 @@ class ReconnectionPool(ConnectionPool):
             setattr(manager, 'connection', conn)
             if getattr(manager, 'pm', None):
                 setattr(manager.pm, 'connection', conn)
+            if (not hasattr(manager, 'storage') and
+                    hasattr(manager, 'project_name')):
+                manager._open_repo()
         except AttributeError:
             pass
 
