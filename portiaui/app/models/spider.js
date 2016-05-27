@@ -36,6 +36,7 @@ const Spider = DS.Model.extend({
             return [];
         }
     }),
+    // move to ui state?
     showLinks: DS.attr('boolean'),
     respectNoFollow: DS.attr('boolean', {
         defaultValue: true
